@@ -3,26 +3,18 @@
  * @return {Function}
  */
 var once = function(fn) {
-    let call = true
-    return function(...args){
-        
-        if(call){
-             call = false
-             return fn(...args)
-        }else{
-             return undefined
-        }
-        
-    }
-        
+    let calls = true;
+            return function(...args){
+                if(calls){
+                        calls = false
+                        console.log({"callsrew":args})
+                   
+                        return calls,fn(...args)
+                } else{
+                     return undefined
+                }
+            } 
 };
-
-function onceFnAdd(a,b,c){
-    return a+b+c
-}
-function onceFnMulti(a,b,c){
-    return a*b*c
-}
 
 /**
  * let fn = (a,b,c) => (a + b + c)
